@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import { SUNRISE_FRAMES } from "./frames";
-import { useSunriseAnimation } from "./useSunriseAnimation";
 
-export function SunriseBackground() {
-  const { frame } = useSunriseAnimation();
+interface SunriseBackgroundProps {
+  frame: number;
+}
 
+export function SunriseBackground({ frame }: SunriseBackgroundProps) {
   return (
     <div className="absolute inset-0">
       <Image
@@ -14,6 +15,8 @@ export function SunriseBackground() {
         fill
         style={{ objectFit: "cover" }}
         priority
+        draggable={false}
+        unoptimized
       />
     </div>
   );

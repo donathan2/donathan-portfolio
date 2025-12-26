@@ -24,6 +24,6 @@ export function useSunriseAnimation() {
   return {
     frame,
     finished,
-    setFrame, // exposed for manual control later
+    setFrame,
   };
 }
