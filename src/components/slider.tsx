@@ -18,7 +18,7 @@ export function SunriseSlider({
       transition={{ duration: 0.45, delay: 1.8 }}
     >
       <Slider.Root
-        className="h-[12vw] w-[2.8vw] translate-y-[1.3vw] rounded relative flex flex-col bg-cover bg-center"
+        className="h-[6vw] w-[2.8vw] translate-y-[4.43vw] rounded relative flex flex-col bg-cover bg-center"
         style={{
           backgroundImage: "url('/display/slider.png')",
           backgroundRepeat: "no-repeat",
