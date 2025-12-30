@@ -2,9 +2,10 @@
 import { SunriseBackground } from "@/features/sunrise/SunriseBackground";
 import { Name } from "@/features/name/Name";
 import { useSunriseAnimation } from "@/features/sunrise/useSunriseAnimation";
-import { SunriseSlider } from "@/components/slider";
+import { SunriseSlider } from "@/components/home/slider";
 import { SUNRISE_FRAMES } from "@/features/sunrise/frames";
 import { Darkness } from "@/components/home/darkness";
+import Projects from "@/components/projects/button";
 
 export default function Home() {
   const { frame, setFrame } = useSunriseAnimation();
@@ -13,7 +14,7 @@ export default function Home() {
       <SunriseBackground frame={frame} />
       <Darkness frame={frame} />
 
-      <div className="pointer-events-none absolute z-10 top-0 left-0 right-0 flex justify-center">
+      <div className="h-full w-full absolute z-10 flex justify-center">
         <Name></Name>
         <div className="absolute right-[14vw] top-[3vw] z-20 pointer-events-auto">
           <SunriseSlider
@@ -21,6 +22,9 @@ export default function Home() {
             setFrame={setFrame}
             framesCount={SUNRISE_FRAMES.length}
           />
+        </div>
+        <div className="absolute z-30 w-[25vw] h-full">
+          <Projects></Projects>
         </div>
       </div>
     </main>
