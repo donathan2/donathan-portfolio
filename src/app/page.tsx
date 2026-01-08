@@ -2,29 +2,33 @@
 import { SunriseBackground } from "@/features/sunrise/SunriseBackground";
 import { Name } from "@/features/name/Name";
 import { useSunriseAnimation } from "@/features/sunrise/useSunriseAnimation";
-import { SunriseSlider } from "@/components/home/slider";
 import { SUNRISE_FRAMES } from "@/features/sunrise/frames";
 import { Darkness } from "@/components/home/darkness";
 import Projects from "@/components/projects/button";
+import Bio from "@/components/bio/button";
 
 export default function Home() {
   const { frame, setFrame } = useSunriseAnimation();
   return (
-    <main className="relative h-screen">
+    <main className="relative min-h-screen">
       <SunriseBackground frame={frame} />
       <Darkness frame={frame} />
 
-      <div className="h-full w-full absolute z-10 flex justify-center">
-        <Name></Name>
-        <div className="absolute right-[14vw] top-[3vw] z-20 pointer-events-auto">
-          <SunriseSlider
-            frame={frame}
-            setFrame={setFrame}
-            framesCount={SUNRISE_FRAMES.length}
-          />
-        </div>
-        <div className="absolute z-30 w-[23vw] h-full">
-          <Projects></Projects>
+      <div className="relative z-10 flex h-full justify-center items-center">
+        <div className="w-full max-w-[1200px] px-6">
+          <div className="flex flex-col items-center gap-12">
+            <div className="flex relative items-center justify-center w-full gap-6">
+              <Name
+                setFrame={setFrame}
+                framesCount={SUNRISE_FRAMES.length}
+                frame={frame}
+              />
+            </div>
+            <div className="flex gap-8">
+              <Projects />
+              <Bio />
+            </div>
+          </div>
         </div>
       </div>
     </main>

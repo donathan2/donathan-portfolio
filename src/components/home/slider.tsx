@@ -1,6 +1,7 @@
+"use client";
+
 import * as Slider from "@radix-ui/react-slider";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function SunriseSlider({
   setFrame,
@@ -11,43 +12,61 @@ export function SunriseSlider({
   framesCount: number;
   frame: number;
 }) {
+  const [sliderWidth, setSliderWidth] = useState(101); // min width
+  const [thumbWidth, setThumbWidth] = useState(8); // min thumb width
+
+  useEffect(() => {
+    const updateSizes = () => {
+      const width = Math.min(Math.max(window.innerWidth * 0.14, 101), 202); // clamp(101px,14vw,202px)
+      const thumb = Math.min(Math.max(window.innerWidth * 0.011, 8), 16); // clamp(8px,1.1vw,16px)
+      setSliderWidth(width);
+      setThumbWidth(thumb);
+    };
+
+    updateSizes();
+    window.addEventListener("resize", updateSizes);
+    return () => window.removeEventListener("resize", updateSizes);
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 15 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.45, delay: 1.8 }}
-    >
-      <Slider.Root
-        className="h-[6vw] w-[2.8vw] translate-y-[4.43vw] rounded relative flex flex-col bg-cover bg-center"
+    <div className="relative flex items-end">
+      {/* Slider background */}
+      <div
+        className="absolute left-1/2 aspect-[12.5/1] bottom-0 -translate-x-1/2 bg-no-repeat bg-bottom pointer-events-none z-0"
         style={{
+          width: `${sliderWidth * 1.65}px`, // match your 165% multiplier
           backgroundImage: "url('/display/slider.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "300%",
+          backgroundSize: "100%",
         }}
-        orientation="vertical"
+      />
+      <Slider.Root
+        orientation="horizontal"
         min={0}
         max={framesCount - 1}
         step={1}
         value={[frame]}
         onValueChange={(val) => setFrame(val[0])}
+        className="relative flex items-end aspect-[12.5/1] overflow-visible z-10"
+        style={{
+          width: `${sliderWidth}px`,
+        }}
       >
-        <Slider.Track className="flex-1 w-10 h-10 z-20 rounded relative">
-          <Slider.Range className="absolute w-10 h-10 z-20 rounded-full" />
+        {/* Track */}
+        <Slider.Track className="relative flex-1 h-full px-[20%]">
+          <Slider.Range className="absolute inset-y-0" />
         </Slider.Track>
-        <div className="z-40 absolute w-[6vw] h-[6vw] left-1/2 -translate-x-1/2 top-[-4.0vw] pointer-events-none">
-          <Image src="/display/dayicon.png" alt="day icon" fill />
-        </div>
-        <div className="z-40 absolute w-[6vw] h-[6vw] left-1/2 -translate-x-1/2 bottom-[-4.0vw] pointer-events-none">
-          <Image src="/display/nighticon.png" alt="night icon" fill />
-        </div>
+
+        {/* Thumb */}
         <Slider.Thumb
-          className="absolute z-50 translate-x-[-0.60vw] translate-y-[-1vw] w-[4.5vw] h-[2vw] focus:outline-none focus:ring-0 active:outline-none active:ring-0"
+          className="block rounded-full bg-no-repeat bg-bottom focus:outline-none flex-shrink-0"
           style={{
+            width: `${thumbWidth}px`,
+            aspectRatio: "1 / 2",
             backgroundImage: "url('/display/sliderknob.png')",
-            backgroundSize: "contain",
+            backgroundSize: "100%",
           }}
         />
       </Slider.Root>
-    </motion.div>
+    </div>
   );
 }

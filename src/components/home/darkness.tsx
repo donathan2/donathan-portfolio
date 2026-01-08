@@ -3,7 +3,7 @@ export function Darkness({ frame }: { frame: number }) {
     <div
       className="absolute pointer-events-none z-40"
       style={{
-        background: `rgba(0,0,0,${(10 - frame) / 60})`,
+        background: `rgba(0,0,0,${(10 - frame) / 65})`,
         inset: 0,
       }}
     ></div>

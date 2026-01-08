@@ -8,7 +8,6 @@ const font = Micro_5({
   weight: "400",
 });
 
-import Image from "next/image";
 export default function Projects() {
   const [opened, setOpened] = useState(false);
   const [isSafari, setIsSafari] = useState(false);
@@ -34,10 +33,9 @@ export default function Projects() {
       transition={{ delay: 1.8, duration: 0.4 }}
     >
       <motion.div
-        className={` ${font.className} text-[4.8vw] absolute top-[24vw] text-center translate-x-[-24vw]`}
+        className={` ${font.className} text-[4.8vw] absolute top-[24vw] text-center translate-x-[-26vw]`}
         onClick={() => {
           setOpened((opened) => !opened);
-          console.log("Clicked!");
         }}
         whileHover={{ scale: 1.1, rotateX: 35 }}
       >
@@ -53,10 +51,10 @@ export default function Projects() {
             muted
             playsInline
             preload="auto"
-            className="absolute top-0 left-0 w-full h-full object-cover rounded"
+            className="absolute top-0 left-0 w-full h-full translate-y-[-11vh] object-cover rounded"
             draggable={false}
           />
-          <p className="absolute w-full left-0 text-center translate-y-[5.5vw] [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] z-10 pointer-events-none">
+          <p className="absolute w-full left-0 text-center [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] z-10 pointer-events-none">
             PROJECTS
           </p>
         </div>

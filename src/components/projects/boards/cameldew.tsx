@@ -34,12 +34,12 @@ export default function Cameldew() {
         fill
         unoptimized
       ></Image>
-      <div className="absolute z-20 w-[17vw] h-[8vh] line-clamp-1 text-[4vh] bg-lime-700 border-lime-200 border-[3px] [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] translate-x-[33vw] translate-y-[18vh]">
-        Cameldew Valley
+      <div className="absolute z-20 w-[17vw] h-[8vh] line-clamp-1 text-[4vh] bg-green-900 border-white border-[3px] [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] translate-x-[33vw] translate-y-[18vh]">
+        <p className="translate-y-[0.5vh] text-white">Cameldew Valley</p>
       </div>
-      <div className="absolute z-20 w-[40%] h-[24vh] bg-lime-400 border-white border-[2px] translate-x-[9vw] translate-y-[46vh]">
+      <div className="absolute z-20 w-[40%] h-[24vh] bg-green-600 border-white border-[2px] translate-x-[9vw] translate-y-[46vh]">
         <p
-          className={`${font.className} text-[1.65vh] p-[3px] text-black line-clamp-9`}
+          className={`${font.className} text-[1.65vh] p-[3px] text-white line-clamp-9`}
         >
           Explore Cameldew Valley! Players move around a two-dimensional grid,
           plant seeds on soil tiles, and harvest rops as they reach maturity.
@@ -51,9 +51,9 @@ export default function Cameldew() {
           expires.
         </p>
       </div>
-      <div className="absolute z-20 w-[17vw] h-[18.5%] bg-green-700 border-white border-[2px] translate-x-[33vw] translate-y-[28vh]">
+      <div className="absolute z-20 w-[17vw] h-[18.5%] bg-lime-400 border-white border-[2px] translate-x-[33vw] translate-y-[28vh]">
         <p
-          className={`${font.className} text-[1.65vh] p-[3px] text-white line-clamp-6`}
+          className={`${font.className} text-[1.65vh] p-[3px] text-black line-clamp-6`}
         >
           Cameldew Valley is built on OCaml and Raylib. The game was made as
           part of my functional programming course's final project with my
@@ -98,7 +98,7 @@ export default function Cameldew() {
           muted
           playsInline
           preload="auto"
-          className="absolute top-0 left-0 w-full h-full object-cover z-20 rounded"
+          className="absolute top-0 left-0 w-full h-full object-cover z-20"
           draggable={false}
         />
       </div>

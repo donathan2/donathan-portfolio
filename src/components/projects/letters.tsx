@@ -9,7 +9,7 @@ const font = Jersey_10({
 export default function Letters() {
   return (
     <div
-      className={`${font.className} absolute inset-0 text-[5vw] translate-y-[3.5vw] translate-x-[-26vw] [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)]`}
+      className={`${font.className} absolute inset-0 text-[5vw] translate-y-[-1.5vw] translate-x-[6.5vw] [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)]`}
     >
       <motion.div
         className="absolute text-teal-500 translate-x-[-0.2vw]"

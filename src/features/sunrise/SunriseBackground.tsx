@@ -1,5 +1,6 @@
 "use client";
-import Image from "next/image";
+import NextImage from "next/image";
+import { useEffect } from "react";
 import { SUNRISE_FRAMES } from "./frames";
 
 interface SunriseBackgroundProps {
@@ -7,9 +8,17 @@ interface SunriseBackgroundProps {
 }
 
 export function SunriseBackground({ frame }: SunriseBackgroundProps) {
+  // Preload all frames
+  useEffect(() => {
+    SUNRISE_FRAMES.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <div className="absolute inset-0">
-      <Image
+      <NextImage
         src={SUNRISE_FRAMES[frame]}
         alt={`Sunrise frame ${frame + 1}`}
         fill

@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Letters from "./letters";
@@ -6,6 +7,7 @@ import Unselected from "./boards/unselected";
 import Selections from "./selections";
 import Bitbridge from "./boards/bitbridge";
 import Cameldew from "./boards/cameldew";
+import Parlor from "./boards/parlor";
 
 export default function Window({
   setOpened,
@@ -13,8 +15,7 @@ export default function Window({
   setOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [project, setProject] = useState<number>(0);
-
-  return (
+  const windowContent = (
     <>
       <div
         className={`fixed z-50 inset-0 ${
@@ -22,6 +23,8 @@ export default function Window({
             ? "bg-cyan-800/50"
             : project === 2
             ? "bg-green-800/50"
+            : project === 3
+            ? "bg-blue-900/50"
             : "bg-gray-800/50"
         }`}
         onClick={() => setOpened(false)}
@@ -40,13 +43,19 @@ export default function Window({
           fill
         ></Image>
         <Selections project={project} setProject={setProject}></Selections>
+        <div className="absolute z-60 top-0 left-0 w-full h-[5vw] pointer-events-none flex items-center justify-center">
+          <Letters />
+        </div>
       </motion.div>
-      <div className="w-[10vw] h-[5vw] absolute z-52 fixed pointer-events-none">
-        <Letters />
-      </div>
+
       {project === 0 && <Unselected></Unselected>}
       {project === 1 && <Bitbridge></Bitbridge>}
       {project === 2 && <Cameldew></Cameldew>}
+      {project === 3 && <Parlor></Parlor>}
     </>
   );
+
+  return typeof window !== "undefined"
+    ? createPortal(windowContent, document.body)
+    : null;
 }
