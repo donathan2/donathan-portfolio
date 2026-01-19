@@ -16,7 +16,7 @@ export default function Home() {
 
       <div className="relative z-10 flex h-full justify-center items-center">
         <div className="w-full max-w-[1200px] px-6">
-          <div className="flex flex-col items-center gap-12">
+          <div className="flex flex-col items-center gap-2">
             <div className="flex relative items-center justify-center w-full gap-6">
               <Name
                 setFrame={setFrame}
@@ -24,7 +24,7 @@ export default function Home() {
                 frame={frame}
               />
             </div>
-            <div className="flex gap-8">
+            <div className="flex gap-8 -translate-y-[clamp(64px,9vw,72px)]">
               <Projects />
               <Bio />
             </div>

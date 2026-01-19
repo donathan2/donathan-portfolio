@@ -37,7 +37,7 @@ export function Name({
       initial={{ opacity: 1, y: "-100%" }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.7, type: "spring", damping: 20, stiffness: 70 }}
-      className="relative w-[clamp(500px,70vw,1000px)] aspect-[16/6]"
+      className="relative w-[clamp(500px,78vw,1124px)] aspect-[16/6]"
     >
       {/* Video backdrop */}
       <video
@@ -56,7 +56,7 @@ export function Name({
           absolute left-1/2 top-[35%]
           -translate-x-1/2 -translate-y-1/2
           ${nameFont.className}
-          text-[clamp(2.5rem,6.5vw,8rem)]
+          text-[clamp(2rem,8.0vw,116px)]
           text-amber-200
           [text-shadow:3px_3px_1px_rgba(0,0,0,1)]
           w-[90%] max-w-[800px]
@@ -75,7 +75,7 @@ export function Name({
           absolute left-1/2 top-[50%]
           -translate-x-1/2
           ${subFont.className}
-          text-[clamp(0.6rem,2vw,1.2rem)]
+          text-[clamp(0.2rem,1.4vw,1.2rem)]
           text-orange-100
           [text-shadow:0.5px_0.5px_1px_rgba(0,0,0,1)]
           w-[90%] max-w-[900px]
@@ -85,9 +85,9 @@ export function Name({
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.45 }}
       >
-        Software Engineer | Full Stack Developer | Visual Designer
+        Software Engineering & Design
       </motion.div>
-      <div className="overflow-visible z-50 absolute top-[10.2%] right-[25%]">
+      <div className="overflow-visible z-50 absolute top-[10.8%] right-[25%]">
         <SunriseSlider
           setFrame={setFrame}
           framesCount={framesCount}

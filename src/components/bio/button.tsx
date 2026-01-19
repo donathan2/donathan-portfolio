@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Micro_5 } from "next/font/google";
 import Window from "./window";
+import { Micro_5 } from "next/font/google";
 
 const font = Micro_5({
   subsets: ["latin"],
@@ -14,31 +14,39 @@ export default function Bio() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const ua = typeof window !== "undefined" ? window.navigator.userAgent : "";
+    const ua = window.navigator.userAgent;
     setIsSafari(/^((?!chrome|android).)*safari/i.test(ua));
   }, []);
 
   useEffect(() => {
     const id = setTimeout(() => {
       videoRef.current?.play();
-    }, 1900); // delay in ms
+    }, 1900);
     return () => clearTimeout(id);
   }, []);
+
   return (
-    <motion.div
-      className="w-full h-full"
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.4, delay: 1.8 }}
-    >
+    <div className="relative w-[38vw] max-w-[550px] min-w-[300px] aspect-[2/1]">
+      {/* Entrance animation */}
       <motion.div
-        className={` ${font.className} text-[4.8vw] absolute top-[24vw] text-center translate-x-[-1vw]`}
-        onClick={() => {
-          setOpened((opened) => !opened);
-        }}
-        whileHover={{ scale: 1.1, rotateX: 35 }}
+        initial={{ opacity: 0, x: 25 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.8, duration: 0.4 }}
+        className="absolute inset-0"
       >
-        <div className="w-[28vw] h-[14vw] relative">
+        {/* Interaction animation */}
+        <motion.button
+          type="button"
+          whileHover={{ scale: 1.1, rotateX: 35 }}
+          transition={{ duration: 0.15 }}
+          onClick={() => setOpened((o) => !o)}
+          className={`
+            absolute inset-0
+            ${font.className}
+            text-[4.8vw]
+            cursor-pointer
+          `}
+        >
           <video
             ref={videoRef}
             src={
@@ -46,20 +54,21 @@ export default function Bio() {
                 ? "/animations/bio-button-safari.mov"
                 : "/animations/bio-button.webm"
             }
-            autoPlay={false}
             muted
             playsInline
             loop
             preload="auto"
-            className="absolute top-0 left-0 w-full h-full object-cover translate-y-[-10.9vh] rounded"
+            className="absolute inset-0 object-cover rounded"
             draggable={false}
           />
-          <p className="absolute w-full left-0 text-center [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] z-10 pointer-events-none">
-            BIO
-          </p>
-        </div>
+
+          <span className="absolute text-[clamp(50px,6.25vw,90px)] inset-0 flex translate-y-[0.45em] items-center justify-center [text-shadow:4px_4px_1px_rgba(0,0,0,0.7)] pointer-events-none">
+            ABOUT
+          </span>
+        </motion.button>
       </motion.div>
-      {opened && <Window setOpened={setOpened}></Window>}
-    </motion.div>
+
+      {opened && <Window setOpened={setOpened} />}
+    </div>
   );
 }
