@@ -34,7 +34,7 @@ export default function Selections({ project, setProject }: SelectionsProps) {
         <div className="translate-x-[10%] relative w-[3vw] h-[3vw]">
           <Image src="/icons/bitbridge.png" alt="bitbridge icon" fill></Image>
         </div>
-        <p className={`${font.className} text-[1.4vw]`}>BitBridge</p>
+        <p className={`${font.className} text-[1.4vw] text-white`}>BitBridge</p>
       </div>
 
       {/* CAMELDEW */}
@@ -57,7 +57,9 @@ export default function Selections({ project, setProject }: SelectionsProps) {
         <div className="translate-x-[10%] relative w-[3vw] h-[3vw]">
           <Image src="/icons/cameldew.png" alt="bitbridge icon" fill></Image>
         </div>
-        <p className={`${font.className} text-[1.4vw]`}>Cameldew Valley</p>
+        <p className={`${font.className} text-[1.4vw] text-white`}>
+          Cameldew Valley
+        </p>
       </div>
       {/* CAMELDEW */}
       <div
@@ -79,7 +81,9 @@ export default function Selections({ project, setProject }: SelectionsProps) {
         <div className="translate-x-[10%] relative w-[3vw] h-[3vw]">
           <Image src="/icons/parlor.png" alt="parlor icon" fill></Image>
         </div>
-        <p className={`${font.className} text-[1.4vw]`}>Pixel Parlor</p>
+        <p className={`${font.className} text-[1.4vw] text-white`}>
+          Pixel Parlor
+        </p>
       </div>
     </>
   );
