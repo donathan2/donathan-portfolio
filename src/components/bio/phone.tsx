@@ -53,7 +53,7 @@ export default function Phone() {
         onClick={() => setPhoto(6)}
       ></button>
       <motion.div
-        className="absolute w-[12%] h-[5%] left-[3%] bottom-[14%] z-50"
+        className="absolute w-[14%] h-[6%] left-[2%] bottom-[13.3%] z-50"
         animate={{ scale: [1, 1.2, 1], rotate: [0, -2, 2, 0] }}
         transition={{
           duration: 1.5,
