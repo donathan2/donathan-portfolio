@@ -32,7 +32,7 @@ export default function About() {
         </p>
       </div>
       <div
-        className={`${font.className} absolute w-[70%] leading-tight tracking-wide h-[70%] top-[24%] left-[15%] text-[clamp(0px,1.5vw,22px)] [text-shadow:-2px_2px_1px_rgba(0,0,0,1)]`}
+        className={`${font.className} absolute w-[70%] text-white leading-tight tracking-wide h-[70%] top-[24%] left-[15%] text-[clamp(0px,1.5vw,22px)] [text-shadow:-2px_2px_1px_rgba(0,0,0,1)]`}
       >
         <p>
           Hi I'm Donathan, and I think programming is pretty cool. I love art,

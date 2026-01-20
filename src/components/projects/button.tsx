@@ -61,7 +61,7 @@ export default function Projects() {
             draggable={false}
           />
 
-          <span className="absolute text-[clamp(50px,6.25vw,90px)] inset-0 flex translate-y-[0.45em] items-center justify-center [text-shadow:4px_4px_1px_rgba(0,0,0,0.7)] pointer-events-none">
+          <span className="absolute text-white text-[clamp(50px,6.25vw,90px)] inset-0 flex translate-y-[0.45em] items-center justify-center [text-shadow:4px_4px_1px_rgba(0,0,0,0.7)] pointer-events-none">
             PROJECTS
           </span>
         </motion.button>
