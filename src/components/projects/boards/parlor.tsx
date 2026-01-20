@@ -65,7 +65,7 @@ export default function Parlor() {
       </div>
 
       <a
-        href="https://github.com/donathan2/donathans-secret-valley"
+        href="https://github.com/donathan2/old-portfolio"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute z-20 w-[22%] h-[8%] text-[4vh] text-white [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] translate-x-[9.5vw] translate-y-[54vh] bg-indigo-300 rounded-[20px] border-[2px] border-white flex items-center justify-center"
@@ -79,7 +79,7 @@ export default function Parlor() {
       </a>
 
       <a
-        href="https://youtu.be/Tkijs_KXHkA?si=E9cDq-3fZpzLtISW"
+        href="https://natsume.dev/adventure/ice-cream"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute z-20 w-[22%] h-[8%] text-[4vh] text-white [text-shadow:3px_3px_1px_rgba(0,0,0,0.6)] translate-x-[9.5vw] translate-y-[63vh] bg-indigo-500 rounded-[20px] border-[2px] border-white flex items-center justify-center"
